@@ -1,6 +1,10 @@
-import tweepy 
+from twitter import *
+import sqlite3
+from secrets import * 
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
 
-api = tweepy.API(auth)
+# Handles Twitter authentication and API setup.
+t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
+
+# Retreiving Twitter mentions with chess moves
+chessMoves = t.

@@ -1,1 +1,2 @@
-tweepy
+twitter
+sqlite3
