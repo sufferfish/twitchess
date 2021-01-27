@@ -16,7 +16,7 @@ USER_ID = "Chessbot4"
 try:
     tweets = t.statuses.user_timeline(screen_name=USER_ID)
     for t in tweets:
-        print(t)
+        print(t['text'])
 
 # Catching an exception; look up API docu on more specific exceptions if we want to addr them case-by-case
 except Exception as e:
