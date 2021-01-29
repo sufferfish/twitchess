@@ -1,5 +1,4 @@
 from twitter import *
-import sqlite3
 from secrets import * 
 import requests
 import json
