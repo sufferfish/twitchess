@@ -7,9 +7,6 @@ import json
 # Handles Twitter authentication and API setup.
 t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
 
-# Retreiving Twitter mentions with chess moves
-#chessMoves = t.
-
 # Hard coding for now; later can take as input or whatever is necessary
 USER_HANDLE = "Chessbot4" 
 USER_ID = 1354261508859957249

@@ -1,10 +1,14 @@
 import chess
 import chess.pgn
-import io
 
-def openPGN():
-    pgn = open("fischer_v_spassky.pgn")
-    first_game = chess.pgn.read_game(pgn)
-    return first_game
+def makeNewGame():
+    game = open('example.pgn', 'x') #need to add way to input author_id from twitter api
+    return game
 
-print(first_game)
+def pullMoveFromTweet():
+
+
+def appendToExistingGame(str):
+    pgn = open('example.pgn')
+    currentGame = chess.pgn.read_game(pgn)
+    addedMove = currentGame.add_variation(chess.Move.from_uci(str))
