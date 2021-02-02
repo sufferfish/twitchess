@@ -46,6 +46,8 @@ try:
     url = create_url_get_tweets_with_mentions()
     json_response = connect_to_endpoint(url)
     print(json.dumps(json_response, indent=4, sort_keys=True))
+    for tweet in json_response['data']:
+        print(tweet['author_id'])
 # Catching an exception; look up API docu on more specific exceptions if we want to addr them case-by-case
 except Exception as e:
     print('Exception')
