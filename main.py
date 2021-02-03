@@ -4,9 +4,6 @@ import requests
 import json
 import base64
 
-# Handles Twitter authentication and API setup.
-t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
-
 # Hard coding for now; later can take as input or whatever is necessary
 USER_HANDLE = "Chessbot4" 
 USER_ID = 1354261508859957249
@@ -25,8 +22,6 @@ def create_headers():
     return headers
 
 def parameters():
-    # https://developer.twitter.com/en/docs/twitter-api/tweets/timelines/api-reference/get-users-id-mentions
-    # Query Parameters
     return {"tweet.fields": "author_id"} 
 
 # Make the GET request
@@ -63,32 +58,18 @@ def auth_user_tweepy():
     return api
 
 def post_tweet(data):
-    '''post_headers = {
-            'Authorization': 'Bearer {}'.format(auth_user)
-    }
-    post_tweet_url = 'https://api.twitter.com/1.1/statuses/update.json'
-    post_params = {
-            'status': data
-    }
-    
-    response = requests.post(post_tweet_url, headers=post_headers, params=post_params)
-    print(response.status_code)
-    print(response.json())'''
     api = auth_user_tweepy()
     api.update_status(data)
 
 # Wrapping Twitter GETs in a try/catch in case we encounter an error/exception
 try:
-    #tweets = t.statuses.user_timeline(screen_name=USER_HANDLE)
-    #for t in tweets:
-    #    print(t['text'])
     url = create_url_get_tweets_with_mentions()
     json_response = connect_to_endpoint(url)
     print(json.dumps(json_response, indent=4, sort_keys=True))
     for tweet in json_response['data']:
         print(tweet['author_id'])
 
-    post_tweet("posting test")
+    # post_tweet("posting test")
     
 # Catching an exception; look up API docu on more specific exceptions if we want to addr them case-by-case
 except Exception as e:
