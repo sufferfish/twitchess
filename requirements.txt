@@ -1,4 +1,4 @@
-twitter
+tweepy
 sqlite3
 requests
 json

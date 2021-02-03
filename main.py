@@ -1,15 +1,11 @@
-from twitter import *
+import tweepy
 from secrets import * 
 import requests
 import json
 import base64
-import tweepy
 
 # Handles Twitter authentication and API setup.
 t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
-
-# Retreiving Twitter mentions with chess moves
-#chessMoves = t.
 
 # Hard coding for now; later can take as input or whatever is necessary
 USER_HANDLE = "Chessbot4" 
@@ -93,6 +89,7 @@ try:
         print(tweet['author_id'])
 
     post_tweet("posting test")
+    
 # Catching an exception; look up API docu on more specific exceptions if we want to addr them case-by-case
 except Exception as e:
     print('Exception')
