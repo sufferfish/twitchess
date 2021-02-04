@@ -61,6 +61,13 @@ def post_tweet(data):
     api = auth_user_tweepy()
     api.update_status(data)
 
+def retrieve_mentions():
+    api = auth_user_tweepy()
+    mentions = api.mentions_timeline()
+    for mention in mentions:
+        return mention.text
+        return mention.user.screen_name
+
 # Wrapping Twitter GETs in a try/catch in case we encounter an error/exception
 try:
     url = create_url_get_tweets_with_mentions()
@@ -70,6 +77,7 @@ try:
         print(tweet['author_id'])
 
     # post_tweet("posting test")
+    # print(retrieve_mentions())
     
 # Catching an exception; look up API docu on more specific exceptions if we want to addr them case-by-case
 except Exception as e:
